@@ -28,7 +28,7 @@ class Home : AppCompatActivity() {
 
     fun filmList(view: View) {
 
-        val intent : Intent = Intent(applicationContext, FilmList::class.java)
+        val intent = Intent(applicationContext, FilmList::class.java)
 
         startActivity(intent.putExtra("input",text.text.toString()))
     }
