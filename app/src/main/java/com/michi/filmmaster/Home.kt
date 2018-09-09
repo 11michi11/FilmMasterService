@@ -32,4 +32,9 @@ class Home : AppCompatActivity() {
 //        startActivity(intent.putExtra("input",text.text.toString()))
 //    }
 
+        val intent = Intent(applicationContext, FilmList::class.java)
+
+        startActivity(intent.putExtra("input",text.text.toString()))
+    }
+
 }
