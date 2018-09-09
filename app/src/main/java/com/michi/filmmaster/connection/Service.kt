@@ -19,9 +19,14 @@ fun main(args: Array<String>) {
 
 
 class Service : WebService {
+
     companion object {
         private const val SERVICE_URL = "http://localhost:8080/"
         val gson = Gson()
+    }
+
+    public override fun addFilmToUsersWatchList(filmId: String, userId: String) {
+        
     }
 
     public override fun getFilmsByTitle(title: String): List<Film> {
@@ -34,6 +39,8 @@ class Service : WebService {
         println(response)
         return films
     }
+
+
 
     private fun sendGet(url: String) : String{
         val obj = URL(url)

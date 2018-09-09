@@ -5,4 +5,6 @@ import com.michi.filmmaster.Film
 interface WebService {
 
     fun getFilmsByTitle(title : String) : List<Film>
+
+    fun addFilmToUsersWatchList(filmId : String, userId : String)
 }
