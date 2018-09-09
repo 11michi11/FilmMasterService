@@ -8,23 +8,23 @@ import android.widget.ListView
 
 class FilmList : AppCompatActivity(){
 
-    lateinit var list : ListView
+   // lateinit var list : ListView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.film_list)
+        setContentView(R.layout.activity_filmlist)
 
-        val intent : Intent = intent
-
-        val dupa = intent.getStringExtra("input")
-
-
-        list = findViewById(R.id.list)
-
-        var arr = arrayOf("1", "2", "3")
-        arr[0] = dupa
-
-        list.adapter = ArrayAdapter<String> (this, android.R.layout.simple_list_item_1, arr)
+//        val intent : Intent = intent
+//
+//        val dupa = intent.getStringExtra("input")
+//
+//
+//        list = findViewById(R.id.list)
+//
+//        var arr = arrayOf("1", "2", "3")
+//        arr[0] = dupa
+//
+//        list.adapter = ArrayAdapter<String> (this, android.R.layout.simple_list_item_1, arr)
 
     }
 
