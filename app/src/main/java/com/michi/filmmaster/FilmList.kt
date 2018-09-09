@@ -8,24 +8,30 @@ import android.widget.ListView
 
 class FilmList : AppCompatActivity(){
 
-   // lateinit var list : ListView
+    lateinit var listView : ListView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_filmlist)
 
-//        val intent : Intent = intent
-//
-//        val dupa = intent.getStringExtra("input")
-//
-//
-//        list = findViewById(R.id.list)
-//
-//        var arr = arrayOf("1", "2", "3")
-//        arr[0] = dupa
-//
-//        list.adapter = ArrayAdapter<String> (this, android.R.layout.simple_list_item_1, arr)
 
+        listView = findViewById(R.id.listview)
+
+        val list = mutableListOf<FilmView>()
+
+        //list.add -> here we should add films to list
+        list.add(FilmView(R.drawable.eye, "EyeExample"))
+        list.add(FilmView(R.drawable.heart, "Example"))
+        list.add(FilmView(R.drawable.search, "GFHGHExample"))
+        list.add(FilmView(R.drawable.eye, "EyeExample"))
+        list.add(FilmView(R.drawable.eye, "EyeExample"))
+        list.add(FilmView(R.drawable.eye, "EyeExample"))
+        list.add(FilmView(R.drawable.eye, "EyeExample"))
+
+
+        val adapter = ListView(this, R.layout.film, list)
+
+        listView.adapter = adapter
     }
 
 }
