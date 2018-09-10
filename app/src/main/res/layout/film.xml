@@ -19,6 +19,8 @@
         android:layout_alignBottom="@+id/imageView"
         android:layout_alignParentEnd="true"
         android:gravity="center"
+        android:textSize="30dp"
+        android:textStyle="bold"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:text="TextView" />
