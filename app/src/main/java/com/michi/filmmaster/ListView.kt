@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
 
 data class ListView(val mCtx : Context, val resource : Int, val items : List<FilmView>) : ArrayAdapter<FilmView>(mCtx,resource, items) {
 
@@ -20,7 +21,8 @@ data class ListView(val mCtx : Context, val resource : Int, val items : List<Fil
 
         val film : FilmView = items[position]
 
-        imageView.setImageDrawable(mCtx.resources.getDrawable(film.image))
+        Glide.with(context).load(film.imageUrl).into(imageView)
+
         textView.text = film.name
 
         return view
