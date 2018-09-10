@@ -1,5 +1,6 @@
 package com.michi.filmmaster.connection
 
+import android.support.v7.app.AppCompatActivity
 import com.michi.filmmaster.Film
 
 interface WebService {

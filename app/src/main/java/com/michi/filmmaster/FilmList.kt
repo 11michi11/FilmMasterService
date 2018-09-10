@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.ArrayAdapter
 import android.widget.ListView
+import com.michi.filmmaster.connection.Service
+import com.michi.filmmaster.connection.WebService
 
 class FilmList : AppCompatActivity(){
 
@@ -19,15 +21,12 @@ class FilmList : AppCompatActivity(){
 
         val list = mutableListOf<FilmView>()
 
+        val service : WebService = Service()
+
+        val films = service.getFilmsByTitle("man")
+
+        list.addAll(films.map { FilmView(it.posterURL, it.title)})
         //list.add -> here we should add films to list
-        list.add(FilmView(R.drawable.pf, "Pulp Fiction"))
-        list.add(FilmView(R.drawable.lalaland, "La la land"))
-        list.add(FilmView(R.drawable.whiplash, "Whiplash"))
-        list.add(FilmView(R.drawable.bb, "Breaking Bad"))
-        list.add(FilmView(R.drawable.pf, "Pulp Fiction"))
-        list.add(FilmView(R.drawable.lalaland, "La la land"))
-        list.add(FilmView(R.drawable.whiplash, "Whiplash"))
-        list.add(FilmView(R.drawable.bb, "Breaking Bad"))
 
 
         val adapter = ListView(this, R.layout.film, list)

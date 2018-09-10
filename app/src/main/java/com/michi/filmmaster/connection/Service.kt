@@ -1,14 +1,13 @@
 package com.michi.filmmaster.connection
 
 import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import com.michi.filmmaster.Film
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.net.HttpURLConnection
 import java.net.URL
 import java.util.*
-import com.google.gson.reflect.TypeToken
-
 
 
 fun main(args: Array<String>) {
@@ -21,7 +20,7 @@ fun main(args: Array<String>) {
 class Service : WebService {
 
     companion object {
-        private const val SERVICE_URL = "http://localhost:8080/"
+        private const val SERVICE_URL = "http://10.10.11.108:8080/"
         val gson = Gson()
     }
 
