@@ -33,6 +33,12 @@ class Home : AppCompatActivity() {
 
         //list.add -> here we should add films to list
         list.add(FilmView(R.drawable.eye, "EyeExample"))
+        list.add(FilmView(R.drawable.heart, "Example"))
+        list.add(FilmView(R.drawable.search, "GFHGHExample"))
+        list.add(FilmView(R.drawable.eye, "EyeExample"))
+        list.add(FilmView(R.drawable.eye, "EyeExample"))
+        list.add(FilmView(R.drawable.eye, "EyeExample"))
+        list.add(FilmView(R.drawable.eye, "EyeExample"))
 
         val adapter = ListView(this, R.layout.film, list)
 

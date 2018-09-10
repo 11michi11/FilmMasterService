@@ -11,8 +11,8 @@ import android.widget.TextView
 data class ListView(val mCtx : Context, val resource : Int, val items : List<FilmView>) : ArrayAdapter<FilmView>(mCtx,resource, items) {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        val layoutInflater: LayoutInflater = LayoutInflater.from(mCtx)
 
+        val layoutInflater: LayoutInflater = LayoutInflater.from(mCtx)
         val view: View = layoutInflater.inflate(resource, null)
 
         val imageView: ImageView = view.findViewById(R.id.imageView)
