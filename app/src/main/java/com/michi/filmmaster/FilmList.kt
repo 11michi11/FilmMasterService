@@ -17,7 +17,6 @@ class FilmList : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_filmlist)
 
-        print("LSIT-----------------------------------------------------")
 
         val bottomNavBar = findViewById<BottomNavigationView>(R.id.bottomNavView_Bar)
         bottomNavBar.itemIconTintList = null
@@ -44,10 +43,7 @@ class FilmList : AppCompatActivity(){
     fun handleList(films : List<Film>){
         listView = findViewById(R.id.listview)
 
-        val list = mutableListOf<FilmView>()
-        list.addAll(films.map { FilmView(it.posterURL, it.title)})
-
-        val adapter = ListView(this, R.layout.film, list)
+        val adapter = ListView(this, R.layout.film, films)
         listView.adapter = adapter
     }
 
