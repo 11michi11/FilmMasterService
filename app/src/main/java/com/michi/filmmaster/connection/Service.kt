@@ -20,7 +20,7 @@ fun main(args: Array<String>) {
 class Service : WebService {
 
     companion object {
-        private const val SERVICE_URL = "http://10.10.11.108:8080/"
+        private const val SERVICE_URL = "http://10.0.2.2:8080/"
         val gson = Gson()
     }
 
