@@ -6,18 +6,18 @@ import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
 import android.widget.ListView
+import android.widget.Toast
 import com.michi.filmmaster.connection.Service
 import com.michi.filmmaster.connection.WebService
 
-class FilmList : AppCompatActivity(){
+class FilmList : AppCompatActivity() {
 
-    lateinit var listView : ListView
+    lateinit var listView: ListView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_filmlist)
 
-        print("LSIT-----------------------------------------------------")
 
         val bottomNavBar = findViewById<BottomNavigationView>(R.id.bottomNavView_Bar)
         bottomNavBar.itemIconTintList = null
@@ -41,19 +41,23 @@ class FilmList : AppCompatActivity(){
 
         AsyncGetFilmsByTitle().execute("man")
     }
-    fun handleList(films : List<Film>){
+
+    fun handleList(films: List<Film>) {
         listView = findViewById(R.id.listview)
 
         val list = mutableListOf<FilmView>()
-        list.addAll(films.map { FilmView(it.posterURL, it.title)})
+        list.addAll(films.map { FilmView(it.posterURL, it.title) })
 
         val adapter = ListView(this, R.layout.film, list)
         listView.adapter = adapter
+        listView.setOnItemClickListener { parent, view, position, id ->
+            Toast.makeText(this, "Position Clicked: $position film: ${list[position]}",Toast.LENGTH_SHORT).show()
+        }
     }
 
-    inner class AsyncGetFilmsByTitle : AsyncTask<String, Void, List<Film>>(){
+    inner class AsyncGetFilmsByTitle : AsyncTask<String, Void, List<Film>>() {
         override fun doInBackground(vararg title: String?): List<Film> {
-            val service : WebService = Service()
+            val service: WebService = Service()
             return service.getFilmsByTitle(title[0].orEmpty())
         }
 
