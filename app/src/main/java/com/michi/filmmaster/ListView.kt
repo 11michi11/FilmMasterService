@@ -9,7 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 
-data class ListView(val mCtx : Context, val resource : Int, val items : List<FilmView>) : ArrayAdapter<FilmView>(mCtx,resource, items) {
+data class ListView(val mCtx : Context, val resource : Int, val items : List<Film>) : ArrayAdapter<Film>(mCtx,resource, items) {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
 
@@ -19,11 +19,11 @@ data class ListView(val mCtx : Context, val resource : Int, val items : List<Fil
         val imageView: ImageView = view.findViewById(R.id.imageView)
         val textView: TextView = view.findViewById(R.id.textView)
 
-        val film : FilmView = items[position]
+        val film : Film = items[position]
 
-        Glide.with(context).load(film.imageUrl).into(imageView)
+        Glide.with(context).load(film.posterURL).into(imageView)
 
-        textView.text = film.name
+        textView.text = film.title
 
         return view
     }

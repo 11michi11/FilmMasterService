@@ -45,10 +45,7 @@ class FilmList : AppCompatActivity() {
     fun handleList(films: List<Film>) {
         listView = findViewById(R.id.listview)
 
-        val list = mutableListOf<FilmView>()
-        list.addAll(films.map { FilmView(it.posterURL, it.title) })
-
-        val adapter = ListView(this, R.layout.film, list)
+        val adapter = ListView(this, R.layout.film, films)
         listView.adapter = adapter
         listView.setOnItemClickListener { parent, view, position, id ->
             Toast.makeText(this, "Position Clicked: $position film: ${list[position]}",Toast.LENGTH_SHORT).show()
