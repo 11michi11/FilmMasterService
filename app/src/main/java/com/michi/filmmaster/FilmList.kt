@@ -14,6 +14,10 @@ class FilmList : AppCompatActivity() {
 
     lateinit var listView: ListView
 
+    companion object {
+        const val KEY_FILM = "film"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_filmlist)
@@ -48,7 +52,7 @@ class FilmList : AppCompatActivity() {
         val adapter = ListView(this, R.layout.film, films)
         listView.adapter = adapter
         listView.setOnItemClickListener { parent, view, position, id ->
-            Toast.makeText(this, "Position Clicked: $position film: ${list[position]}",Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, Movie::class.java).putExtra(KEY_FILM,films[position]))
         }
     }
 
