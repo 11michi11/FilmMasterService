@@ -12,7 +12,7 @@ class Home : AppCompatActivity() {
 //        super.onCreate(savedInstanceState)
 //        setContentView(R.layout.activity_home)
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.detailfilm)
+        setContentView(R.layout.activity_detailfilm)
 
 
         val bottomNavBar = findViewById<BottomNavigationView>(R.id.bottomNavView_Bar)

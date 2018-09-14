@@ -13,7 +13,7 @@ class Movie : AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_movie)
+        setContentView(R.layout.activity_detailfilm)
 
         val film = intent.getSerializableExtra(FilmList.KEY_FILM) as DetailedFilm
 
