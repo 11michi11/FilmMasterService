@@ -120,7 +120,8 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="39dp"
             android:progressTint="#f4cb42"
-            android:progressBackgroundTint="#7c7c7c"/>
+            android:progressBackgroundTint="#7c7c7c"
+            />
 
     </RelativeLayout>
 
