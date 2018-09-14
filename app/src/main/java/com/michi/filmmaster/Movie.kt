@@ -15,7 +15,7 @@ class Movie : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie)
 
-        val film = intent.getSerializableExtra(FilmList.KEY_FILM) as Film
+        val film = intent.getSerializableExtra(FilmList.KEY_FILM) as DetailedFilm
 
         val title = findViewById<TextView>(R.id.title)
         title.text = film.title
