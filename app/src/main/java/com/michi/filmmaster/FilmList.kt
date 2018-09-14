@@ -52,9 +52,14 @@ class FilmList : AppCompatActivity() {
         val adapter = ListView(this, R.layout.film, films)
         listView.adapter = adapter
         listView.setOnItemClickListener { parent, view, position, id ->
-            startActivity(Intent(this, Movie::class.java).putExtra(KEY_FILM,films[position]))
+            AsyncGetFilmInfoByID().execute(films[position].imdbID)
         }
     }
+
+    fun openDetailedFilmActivity(film: DetailedFilm) {
+        startActivity(Intent(this, Movie::class.java).putExtra(KEY_FILM,film))
+    }
+
 
     inner class AsyncGetFilmsByTitle : AsyncTask<String, Void, List<Film>>() {
         override fun doInBackground(vararg title: String?): List<Film> {
@@ -65,6 +70,18 @@ class FilmList : AppCompatActivity() {
         override fun onPostExecute(result: List<Film>?) {
             super.onPostExecute(result)
             handleList(result.orEmpty())
+        }
+    }
+
+    inner class AsyncGetFilmInfoByID : AsyncTask<String, Void, DetailedFilm>() {
+        override fun doInBackground(vararg id: String?): DetailedFilm {
+            val service: WebService = Service()
+            return service.getFilmInfo(id[0].orEmpty())
+        }
+
+        override fun onPostExecute(result: DetailedFilm) {
+            super.onPostExecute(result)
+            openDetailedFilmActivity(result)
         }
     }
 
