@@ -118,6 +118,17 @@
                 android:text="YEAR: 1994"
                 android:textColor="#FFF"
                 app:layout_constraintStart_toStartOf="@id/imgBar"
+                app:layout_constraintTop_toBottomOf="@+id/time" />
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/year"
+                android:text="TIME: 124min"
+                android:textColor="#FFF"
+                app:layout_constraintStart_toStartOf="@id/year"
                 app:layout_constraintTop_toBottomOf="@+id/director" />
 
             <TextView
@@ -125,10 +136,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
-                android:layout_below="@+id/year"
+                android:layout_below="@+id/time"
                 android:text="DIRECTOR : Quentin Tarantino"
                 android:textColor="#FFF"
-                app:layout_constraintStart_toStartOf="@id/year"
+                app:layout_constraintStart_toStartOf="@id/time"
                 app:layout_constraintTop_toBottomOf="@+id/actors" />
 
             <TextView

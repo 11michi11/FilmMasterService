@@ -20,12 +20,26 @@ class Movie : AppCompatActivity(){
         val title = findViewById<TextView>(R.id.title)
         title.text = film.title
 
-        val poster = findViewById<ImageView>(R.id.poster)
+        val poster = findViewById<ImageView>(R.id.poster2)
         Glide.with(this).load(film.posterURL).into(poster)
 
-//        val content = findViewById<TextView>(R.id.content)
-//        content.text = film.
+        val content = findViewById<TextView>(R.id.content)
+        content.text = film.plot
 
+        val rating = findViewById<TextView>(R.id.rating)
+        rating.text = film.imdbRating
+
+        val year = findViewById<TextView>(R.id.year)
+        year.text = film.realisedDate
+
+        val time = findViewById<TextView>(R.id.time)
+        time.text = film.runtime
+
+        val director = findViewById<TextView>(R.id.director)
+        director.text = film.director
+
+        val actors = findViewById<TextView>(R.id.actors)
+        actors.text = film.actors
 
 
         val bottomNavBar = findViewById<BottomNavigationView>(R.id.bottomNavView_Bar)
