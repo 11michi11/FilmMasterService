@@ -6,7 +6,6 @@ import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import com.bumptech.glide.Glide
 
 class Movie : AppCompatActivity(){
@@ -17,29 +16,29 @@ class Movie : AppCompatActivity(){
 
         val film = intent.getSerializableExtra(FilmList.KEY_FILM) as DetailedFilm
 
-        val title = findViewById<TextView>(R.id.title)
+        val title = findViewById<TextView>(R.id.filmTitle)
         title.text = film.title
 
-        val poster = findViewById<ImageView>(R.id.poster2)
+        val poster = findViewById<ImageView>(R.id.filmPoster)
         Glide.with(this).load(film.posterURL).into(poster)
 
-        val content = findViewById<TextView>(R.id.content)
-        content.text = film.plot
+        val plot= findViewById<TextView>(R.id.plot)
+        plot.text = "Plot: ${film.plot}"
 
         val rating = findViewById<TextView>(R.id.rating)
         rating.text = film.imdbRating
 
         val year = findViewById<TextView>(R.id.year)
-        year.text = film.realisedDate
+        year.text = "Release date: ${film.realisedDate}"
 
         val time = findViewById<TextView>(R.id.time)
-        time.text = film.runtime
+        time.text = "Runtime: ${film.runtime}"
 
         val director = findViewById<TextView>(R.id.director)
-        director.text = film.director
+        director.text = "Director: ${film.director}"
 
         val actors = findViewById<TextView>(R.id.actors)
-        actors.text = film.actors
+        actors.text = "Actors: ${film.actors}"
 
 
         val bottomNavBar = findViewById<BottomNavigationView>(R.id.bottomNavView_Bar)
