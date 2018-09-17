@@ -31,15 +31,16 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/search"
+            android:id="@+id/searchFilmTitle"
             android:layout_width="388dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="11dp"
             android:drawableTint="#FFF"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Search"
-            android:textColor="#FFF" />
+            android:hint="Search"
+            android:textColor="#FFF"
+            android:textColorHint="#FFF"/>
 
         <ListView
             android:id="@+id/listview"
@@ -48,8 +49,8 @@
             android:layout_marginBottom="50dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/search"
-            app:layout_constraintTop_toTopOf="@id/search"
+            app:layout_constraintStart_toEndOf="@+id/searchFilmTitle"
+            app:layout_constraintTop_toTopOf="@id/searchFilmTitle"
             app:layout_constraintVertical_bias="0.495" />
 
     </LinearLayout>

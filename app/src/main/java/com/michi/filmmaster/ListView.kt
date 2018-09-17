@@ -21,7 +21,7 @@ data class ListView(val mCtx : Context, val resource : Int, val items : List<Fil
 
         val film : Film = items[position]
 
-        Glide.with(context).load(film.posterURL).into(imageView)
+        Glide.with(context).load(film.posterURL).into(imageView).onLoadFailed()
 
         textView.text = film.title
 

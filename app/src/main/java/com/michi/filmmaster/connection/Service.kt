@@ -40,12 +40,15 @@ class Service : WebService {
     override fun getFilmsByTitle(title: String): List<Film> {
         val name = "?name=$title"
         val url = SERVICE_URL + "filmName$name"
-        val response = sendGet(url)
-        val listType = object : TypeToken<ArrayList<Film>>() {}.type
-        val films : List<Film> = gson.fromJson(response, listType)
-
-        println(response)
-        return films
+        try {
+            val response = sendGet(url)
+            val listType = object : TypeToken<ArrayList<Film>>() {}.type
+            val films : List<Film> = gson.fromJson(response, listType)
+            println(response)
+            return films
+        }catch (e : Exception){
+            return emptyList()
+        }
     }
 
 

@@ -5,8 +5,10 @@ import android.os.AsyncTask
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
+import android.text.Editable
+import android.text.TextWatcher
+import android.widget.EditText
 import android.widget.ListView
-import android.widget.Toast
 import com.michi.filmmaster.connection.Service
 import com.michi.filmmaster.connection.WebService
 
@@ -21,6 +23,23 @@ class FilmList : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_filmlist)
+
+
+        val search = findViewById<EditText>(R.id.searchFilmTitle)
+        search.addTextChangedListener(object : TextWatcher{
+            override fun afterTextChanged(s: Editable?) {
+                val content = s?.toString().orEmpty()
+                if(content.length >= 3 && content.length % 2 == 0)
+                    AsyncGetFilmsByTitle().execute(content)
+            }
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+        })
 
 
         val bottomNavBar = findViewById<BottomNavigationView>(R.id.bottomNavView_Bar)
@@ -43,7 +62,7 @@ class FilmList : AppCompatActivity() {
             return@setOnNavigationItemSelectedListener true
         }
 
-        AsyncGetFilmsByTitle().execute("man")
+//        AsyncGetFilmsByTitle().execute("man")
     }
 
     fun handleList(films: List<Film>) {
