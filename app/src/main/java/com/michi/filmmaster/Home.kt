@@ -21,12 +21,12 @@ class Home : AppCompatActivity() {
             when (item.itemId) {
                 R.id.ic_watch -> {
                     print("watch - film list")
-                    val intent = Intent(applicationContext, FilmList::class.java)
+                    val intent = Intent(applicationContext, Home::class.java)
                     startActivity(intent)
                 }
                 R.id.ic_favourite -> {
                     print("fav - film list")
-                    val intent = Intent(applicationContext, FilmList::class.java)
+                    val intent = Intent(applicationContext, SearchList::class.java)
                     startActivity(intent)
                 }
                 R.id.ic_search -> {
@@ -45,7 +45,7 @@ class Home : AppCompatActivity() {
 //    fun filmList(view: View) {
 //
 
-//        val intent : Intent = Intent(applicationContext, FilmList::class.java)
+//        val intent : Intent = Intent(applicationContext, SearchList::class.java)
 //
 //        startActivity(intent.putExtra("input",text.text.toString()))
 //    }

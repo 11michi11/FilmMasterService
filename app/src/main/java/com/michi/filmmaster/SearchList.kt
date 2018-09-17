@@ -12,7 +12,7 @@ import android.widget.ListView
 import com.michi.filmmaster.connection.Service
 import com.michi.filmmaster.connection.WebService
 
-class FilmList : AppCompatActivity() {
+class SearchList : AppCompatActivity() {
 
     lateinit var listView: ListView
 
@@ -26,10 +26,10 @@ class FilmList : AppCompatActivity() {
 
 
         val search = findViewById<EditText>(R.id.searchFilmTitle)
-        search.addTextChangedListener(object : TextWatcher{
+        search.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 val content = s?.toString().orEmpty()
-                if(content.length >= 3 && content.length % 2 == 0)
+                if (content.length >= 3 && (content.length % 2 == 0 || content.length == 3))
                     AsyncGetFilmsByTitle().execute(content)
             }
 
@@ -47,11 +47,11 @@ class FilmList : AppCompatActivity() {
         bottomNavBar.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.ic_watch -> {
-                    val intent = Intent(applicationContext, FilmList::class.java)
+                    val intent = Intent(applicationContext,Home::class.java)
                     startActivity(intent)
                 }
                 R.id.ic_favourite -> {
-                    val intent = Intent(applicationContext, FilmList::class.java)
+                    val intent = Intent(applicationContext, SearchList::class.java)
                     startActivity(intent)
                 }
                 R.id.ic_search -> {
@@ -76,7 +76,7 @@ class FilmList : AppCompatActivity() {
     }
 
     fun openDetailedFilmActivity(film: DetailedFilm) {
-        startActivity(Intent(this, Movie::class.java).putExtra(KEY_FILM,film))
+        startActivity(Intent(this, Movie::class.java).putExtra(KEY_FILM, film))
     }
 
 

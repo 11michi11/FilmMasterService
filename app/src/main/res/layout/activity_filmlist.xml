@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#212121"
-    tools:context=".FilmList"
+    tools:context=".SearchList"
     tools:layout_editor_absoluteY="25dp">
 
     <LinearLayout

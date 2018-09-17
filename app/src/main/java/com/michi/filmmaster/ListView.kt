@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 
 data class ListView(val mCtx : Context, val resource : Int, val items : List<Film>) : ArrayAdapter<Film>(mCtx,resource, items) {
 
@@ -21,7 +22,10 @@ data class ListView(val mCtx : Context, val resource : Int, val items : List<Fil
 
         val film : Film = items[position]
 
-        Glide.with(context).load(film.posterURL).into(imageView).onLoadFailed()
+        val requestOptions = RequestOptions()
+        requestOptions.placeholder(R.drawable.noposterfound)
+
+        Glide.with(context).setDefaultRequestOptions(requestOptions).load(film.posterURL).into(imageView)
 
         textView.text = film.title
 

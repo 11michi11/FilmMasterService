@@ -7,6 +7,9 @@ import android.support.v7.app.AppCompatActivity
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+
+
 
 class Movie : AppCompatActivity(){
 
@@ -14,13 +17,16 @@ class Movie : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detailfilm)
 
-        val film = intent.getSerializableExtra(FilmList.KEY_FILM) as DetailedFilm
+        val requestOptions = RequestOptions()
+        requestOptions.placeholder(R.drawable.noposterfound)
+
+        val film = intent.getSerializableExtra(SearchList.KEY_FILM) as DetailedFilm
 
         val title = findViewById<TextView>(R.id.filmTitle)
         title.text = film.title
 
         val poster = findViewById<ImageView>(R.id.filmPoster)
-        Glide.with(this).load(film.posterURL).into(poster)
+        Glide.with(this).setDefaultRequestOptions(requestOptions).load(film.posterURL).into(poster)
 
         val plot= findViewById<TextView>(R.id.plot)
         plot.text = "Plot: ${film.plot}"
@@ -47,12 +53,12 @@ class Movie : AppCompatActivity(){
             when (item.itemId) {
                 R.id.ic_watch -> {
                     print("watch - film list")
-                    val intent = Intent(applicationContext, FilmList::class.java)
+                    val intent = Intent(applicationContext, Home::class.java)
                     startActivity(intent)
                 }
                 R.id.ic_favourite -> {
                     print("fav - film list")
-                    val intent = Intent(applicationContext, FilmList::class.java)
+                    val intent = Intent(applicationContext, SearchList::class.java)
                     startActivity(intent)
                 }
                 R.id.ic_search -> {
