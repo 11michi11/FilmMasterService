@@ -4,15 +4,15 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
+import android.view.Window
 
 
 class Home : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_home)
-//        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_detailfilm)
+        setContentView(R.layout.activity_home)
+        //setContentView(R.layout.activity_detailfilm)
 
 
         val bottomNavBar = findViewById<BottomNavigationView>(R.id.bottomNavView_Bar)
@@ -26,12 +26,12 @@ class Home : AppCompatActivity() {
                 }
                 R.id.ic_favourite -> {
                     print("fav - film list")
-                    val intent = Intent(applicationContext, SearchList::class.java)
+                    val intent = Intent(applicationContext, Home::class.java)
                     startActivity(intent)
                 }
                 R.id.ic_search -> {
                     print("search - home")
-                    val intent = Intent(applicationContext, Home::class.java)
+                    val intent = Intent(applicationContext, SearchList::class.java)
                     startActivity(intent)
                 }
             }
