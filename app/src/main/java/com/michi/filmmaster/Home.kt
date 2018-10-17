@@ -10,9 +10,9 @@ class Home : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
+//        setContentView(R.layout.activity_home)
 //        super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_detailfilm)
+        setContentView(R.layout.activity_detailfilm)
 
 
         val bottomNavBar = findViewById<BottomNavigationView>(R.id.bottomNavView_Bar)
