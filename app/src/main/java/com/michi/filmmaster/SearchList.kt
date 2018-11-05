@@ -3,14 +3,13 @@ package com.michi.filmmaster
 import android.content.Intent
 import android.os.AsyncTask
 import android.os.Bundle
-import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
 import android.text.Editable
 import android.text.TextWatcher
-import android.widget.EditText
 import android.widget.ListView
 import com.michi.filmmaster.connection.Service
 import com.michi.filmmaster.connection.WebService
+import kotlinx.android.synthetic.main.activity_filmlist.*
 
 class SearchList : AppCompatActivity() {
 
@@ -24,9 +23,7 @@ class SearchList : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_filmlist)
 
-
-        val search = findViewById<EditText>(R.id.searchFilmTitle)
-        search.addTextChangedListener(object : TextWatcher {
+        searchFilmTitle.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 val content = s?.toString().orEmpty()
                 if (content.length >= 3 && (content.length % 2 == 0 || content.length == 3))
@@ -42,7 +39,6 @@ class SearchList : AppCompatActivity() {
         })
 
 
-        val bottomNavBar = findViewById<BottomNavigationView>(R.id.bottomNavView_Bar)
         bottomNavBar.itemIconTintList = null
         bottomNavBar.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
@@ -66,8 +62,6 @@ class SearchList : AppCompatActivity() {
     }
 
     fun handleList(films: List<Film>) {
-        listView = findViewById(R.id.listview)
-
         val adapter = ListView(this, R.layout.film, films)
         listView.adapter = adapter
         listView.setOnItemClickListener { parent, view, position, id ->

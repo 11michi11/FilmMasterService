@@ -2,9 +2,8 @@ package com.michi.filmmaster
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
-import android.view.Window
+import kotlinx.android.synthetic.main.activity_home.*
 
 
 class Home : AppCompatActivity() {
@@ -12,10 +11,7 @@ class Home : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-        //setContentView(R.layout.activity_detailfilm)
 
-
-        val bottomNavBar = findViewById<BottomNavigationView>(R.id.bottomNavView_Bar)
         bottomNavBar.itemIconTintList = null
         bottomNavBar.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
