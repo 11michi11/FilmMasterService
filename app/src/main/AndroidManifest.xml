@@ -19,14 +19,17 @@
 
 
         <activity android:name=".Login">
+
+        </activity>
+        <activity android:name=".Home" />
+        <activity android:name=".SearchList" />
+        <activity android:name=".Movie">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Home" />
-        <activity android:name=".SearchList" />
-        <activity android:name=".Movie" />
+
     </application>
 
 </manifest>

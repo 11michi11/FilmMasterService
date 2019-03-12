@@ -1,6 +1,7 @@
 package com.michi.filmmaster.connection
 
 
+import android.util.Log
 import com.google.gson.Gson
 import com.google.gson.JsonParser
 import com.google.gson.reflect.TypeToken
@@ -88,6 +89,8 @@ class Service : WebService {
         val film: DetailedFilm = gson.fromJson(response.text, DetailedFilm::class.java)
 
         println(response)
+        Log.d("film", "response ${response.text}")
+        Log.d("film", "film $film")
         return film
     }
 
