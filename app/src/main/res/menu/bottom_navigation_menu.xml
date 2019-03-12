@@ -4,21 +4,19 @@
     <item
         android:title="Watch"
         android:id="@+id/ic_watch"
-        android:icon="@drawable/eye"
+        android:icon="@drawable/ic_watch"
         android:textColor="#FFF"/>
-
-
 
     <item
         android:title="Search"
         android:id="@+id/ic_search"
-        android:icon="@drawable/search"
+        android:icon="@drawable/ic_search"
         android:textColor="#FFF"/>
 
     <item
         android:title="Favourite"
         android:id="@+id/ic_favourite"
-        android:icon="@drawable/heart"
+        android:icon="@drawable/ic_rate"
         android:textColor="#FFF"/>
 
 </menu>

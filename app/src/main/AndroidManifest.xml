@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.michi.filmmaster">
-
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -14,22 +13,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <!--android:theme="@android:style/Theme.NoTitleBar"-->
-
-
-        <activity android:name=".Login">
-
-        </activity>
+        <activity
+            android:name=".FilmDetailsNotRated"
+            android:label="@string/title_activity_film_details_not_rated"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <!-- android:theme="@android:style/Theme.NoTitleBar" -->
+        <activity android:name=".Login"></activity>
         <activity android:name=".Home" />
         <activity android:name=".SearchList" />
-        <activity android:name=".Movie">
+        <activity android:name=".FilmDetailsRated">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

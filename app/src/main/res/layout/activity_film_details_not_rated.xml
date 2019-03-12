@@ -4,10 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#212121"
-    android:orientation="vertical"
-    android:clipToPadding="false">
+    android:orientation="vertical">
 
-    <include layout="@layout/top_bar"/>
+    <include layout="@layout/top_bar" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -34,14 +33,40 @@
                 android:contentDescription="poster"
                 app:srcCompat="@drawable/pf" />
 
-            <RatingBar
-                android:id="@+id/ratingBar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
+            <LinearLayout
+                android:id="@+id/imgBar"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
                 android:layout_marginTop="10dp"
-                android:progressBackgroundTint="#7c7c7c"
-                android:progressTint="#f4cb42" />
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/rate"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/ic_rate" />
+
+                <TextView
+                    android:id="@+id/rating"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="10/10"
+                    android:textAlignment="center"
+                    android:textColor="#FFF"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/addToWatchlist"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/ic_watch" />
+            </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -63,14 +88,6 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="TIME" />
-
-                <TextView
-                    android:id="@+id/imdbRatingHeader"
-                    style="@style/FilmMasterFont"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="IMDB" />
             </LinearLayout>
 
             <LinearLayout
@@ -93,17 +110,6 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="124min" />
-
-
-                <TextView
-                    android:id="@+id/rating"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="10/10"
-                    style="@style/FilmMasterFontBig" />
-
-
             </LinearLayout>
 
 
@@ -112,8 +118,7 @@
                 style="@style/FilmMasterFont"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="DIRECTOR"
-                android:layout_marginTop="10dp"/>
+                android:text="DIRECTOR" />
 
             <TextView
                 android:id="@+id/director"
@@ -152,35 +157,11 @@
                 android:layout_height="wrap_content"
                 android:text="The lives of two mob hitmen, a boxer, a gangster's wife, and a pair of diner bandits intertwine in four tales of violence and redemption." />
 
-            <TextView
-                android:id="@+id/reviewHeader"
-                style="@style/FilmMasterFont"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="YOUR REVIEW" />
-
-            <TextView
-                android:id="@+id/review"
-                style="@style/FilmMasterFontSmall"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="This film is super!!"
-                android:layout_marginBottom="10dp"/>
-
-            <Button
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:text="CHANGE YOUR REVIEW"
-                android:background="@drawable/rounded_corners"
-                style="@style/FilmMasterFont"
-                android:layout_gravity="center"/>
-
         </LinearLayout>
 
     </ScrollView>
 
-    <include layout="@layout/bottom_bar"/>
+    <include layout="@layout/bottom_bar" />
 
 
 </LinearLayout>

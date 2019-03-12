@@ -66,7 +66,7 @@ class SearchList : AppCompatActivity() {
     }
 
     fun openDetailedFilmActivity(film: DetailedFilm) {
-        startActivity(Intent(this, Movie::class.java).putExtra(KEY_FILM, film))
+        startActivity(Intent(this, FilmDetailsRated::class.java).putExtra(KEY_FILM, film))
     }
 
 

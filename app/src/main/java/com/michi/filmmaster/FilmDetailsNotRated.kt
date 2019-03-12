@@ -3,29 +3,34 @@ package com.michi.filmmaster
 import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
-import android.support.v7.app.AppCompatActivity
+import android.support.design.widget.Snackbar
+import android.support.v7.app.AppCompatActivity;
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 
+import kotlinx.android.synthetic.main.activity_film_details_not_rated.*
 
-class Movie : AppCompatActivity(){
+class FilmDetailsNotRated : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_film_details_rated)
-//
-//        val requestOptions = RequestOptions()
-//        requestOptions.placeholder(R.drawable.noposterfound)
-//
-//        val film = intent.getSerializableExtra(SearchList.KEY_FILM) as DetailedFilm
-//
-//
-//        filmTitle.text = film.title
-//        Glide.with(this).setDefaultRequestOptions(requestOptions).load(film.posterURL).into(filmPoster)
-//        plot.text = film.plot
-//        rating.text = film.imdbRating
-//        year.text = film.realisedDate
-//        time.text = film.runtime
-//        director.text = film.director
-//        actors.text = film.actors
+        setContentView(R.layout.activity_film_details_not_rated)
+
+
+        val requestOptions = RequestOptions()
+        requestOptions.placeholder(R.drawable.noposterfound)
+
+        val film = intent.getSerializableExtra(SearchList.KEY_FILM) as DetailedFilm
+
+
+        filmTitle.text = film.title
+        Glide.with(this).setDefaultRequestOptions(requestOptions).load(film.posterURL).into(filmPoster)
+        year.text = film.realisedDate
+        time.text = film.runtime
+        rating.text = film.imdbRating
+        director.text = film.director
+        actors.text = film.actors
+        plot.text = film.plot
 
 
         val bottomNavBar = findViewById<BottomNavigationView>(R.id.bottomNavView_Bar)
@@ -50,6 +55,6 @@ class Movie : AppCompatActivity(){
             }
             return@setOnNavigationItemSelectedListener true
         }
-
     }
+
 }
